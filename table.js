@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Page Transition
+    // Page Transition (unchanged)
     const transitionLayers = document.querySelectorAll('.transition-layer');
     const links = document.querySelectorAll('.nav__link');
     let direction = 'forward'; // Default direction
@@ -61,10 +61,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Search Table
     function searchTable() {
+        const searchData = search.value.toLowerCase();
         tableRows.forEach((row, i) => {
-            const tableData = row.textContent.toLowerCase();
-            const searchData = search.value.toLowerCase();
-            row.classList.toggle('hide', tableData.indexOf(searchData) < 0);
+            const cells = row.querySelectorAll('td');
+            let shouldHide = true;
+
+            cells.forEach(cell => {
+                const cellText = cell.textContent.toLowerCase();
+                if (cellText.includes(searchData)) {
+                    shouldHide = false;
+                }
+            });
+
+            row.classList.toggle('hide', shouldHide);
             row.style.setProperty('--delay', i / 25 + 's');
         });
 
@@ -75,14 +84,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
     search.addEventListener('input', searchTable);
 
-    // Sorting Table
-    function sortTable(column, sortAsc) {
-        [...tableRows].sort((a, b) => {
-            const firstRow = a.querySelectorAll('td')[column].textContent.toLowerCase();
-            const secondRow = b.querySelectorAll('td')[column].textContent.toLowerCase();
-            return sortAsc ? (firstRow < secondRow ? 1 : -1) : (firstRow < secondRow ? -1 : 1);
-        }).forEach(sortedRow => document.querySelector('tbody').appendChild(sortedRow));
+    // Updated Sorting Table
+    function sortTable(columnIndex, sortAsc) {
+        // Convert NodeList to Array
+        const rowsArray = Array.from(tableRows);
+    
+        const sortedRows = rowsArray.sort((a, b) => {
+            // Extract text content from the cells
+            const cellA = a.querySelectorAll('td')[columnIndex].textContent.trim();
+            const cellB = b.querySelectorAll('td')[columnIndex].textContent.trim();
+    
+            // Check if the column is numeric
+            const isNumericColumn = !isNaN(parseFloat(cellA.replace(/[^0-9.-]/g, '')));
+    
+            if (isNumericColumn) {
+                // Numeric sorting
+                const numA = parseFloat(cellA.replace(/[^0-9.-]/g, ''));
+                const numB = parseFloat(cellB.replace(/[^0-9.-]/g, ''));
+                return sortAsc ? numA - numB : numB - numA;
+            } else {
+                // Text sorting
+                const normalizedA = cellA.toLowerCase();
+                const normalizedB = cellB.toLowerCase();
+                
+                // Use localeCompare for better string comparison
+                const comparison = normalizedA.localeCompare(normalizedB, undefined, { sensitivity: 'base' });
+                return sortAsc ? comparison : -comparison;
+            }
+        });
+    
+        // Rebuild the table body with sorted rows
+        const tbody = document.querySelector('tbody');
+        tbody.innerHTML = ''; // Clear existing rows
+        sortedRows.forEach(row => tbody.appendChild(row)); // Append sorted rows
     }
+    
+
 
     tableHeadings.forEach((head, i) => {
         let sortAsc = true;
@@ -99,8 +136,8 @@ document.addEventListener('DOMContentLoaded', function () {
             sortTable(i, sortAsc);
         });
     });
-
-    // Convert Table to PDF
+    
+    // Convert Table to PDF (unchanged)
     function toPDF() {
         const htmlCode = `
         <!DOCTYPE html>
@@ -122,16 +159,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (pdfBtn) pdfBtn.addEventListener('click', toPDF);
 
-    // Convert Table to JSON
+    // Convert Table to JSON (unchanged)
     function toJSON() {
         const tableData = [];
-        const tHeadings = customersTable.querySelectorAll('th');
-        const tRows = customersTable.querySelectorAll('tbody tr');
-        const headers = Array.from(tHeadings).map(th => th.textContent.trim().split(' ').slice(0, -1).join(' ').toLowerCase());
-
-        tRows.forEach(row => {
+        const headers = Array.from(customersTable.querySelectorAll('th')).map(th => th.textContent.trim().toLowerCase());
+        
+        customersTable.querySelectorAll('tbody tr').forEach(row => {
             const rowObject = {};
-            row.querySelectorAll('td').forEach((cell, index) => {
+            Array.from(row.querySelectorAll('td')).forEach((cell, index) => {
                 const img = cell.querySelector('img');
                 if (img) {
                     rowObject['customer image'] = decodeURIComponent(img.src);
@@ -163,41 +198,37 @@ document.addEventListener('DOMContentLoaded', function () {
         downloadFile(json, 'json');
     });
 
-    // Convert Table to CSV
+    // Convert Table to CSV (unchanged)
     function toCSV() {
-        const tHeads = customersTable.querySelectorAll('th');
-        const tbodyRows = customersTable.querySelectorAll('tbody tr');
-        const headings = Array.from(tHeads).map(th => th.textContent.trim().split(' ').slice(0, -1).join(' ').toLowerCase()).join(',') + ',image name';
-        const tableData = Array.from(tbodyRows).map(row => {
-            const cells = row.querySelectorAll('td');
-            const img = decodeURIComponent(row.querySelector('img').src);
-            const dataWithoutImg = Array.from(cells).map(cell => cell.textContent.replace(/,/g, ".").trim()).join(',');
-            return `${dataWithoutImg},${img}`;
+        const headings = Array.from(customersTable.querySelectorAll('th')).map(th => th.textContent.trim().toLowerCase()).join(',') + ',image';
+        const rows = Array.from(customersTable.querySelectorAll('tbody tr')).map(row => {
+            const cells = Array.from(row.querySelectorAll('td'));
+            const img = row.querySelector('img') ? decodeURIComponent(row.querySelector('img').src) : '';
+            return cells.map(cell => cell.textContent.trim().replace(/,/g, '.')).join(',') + ',' + img;
         }).join('\n');
-        return `${headings}\n${tableData}`;
+
+        return `${headings}\n${rows}`;
     }
 
     if (csvBtn) csvBtn.addEventListener('click', () => {
         const csv = toCSV();
-        downloadFile(csv, 'csv', 'customer orders');
+        downloadFile(csv, 'csv', 'customer-orders');
     });
 
-    // Convert Table to Excel
+    // Convert Table to Excel (unchanged)
     function toExcel() {
-        const tHeads = customersTable.querySelectorAll('th');
-        const tbodyRows = customersTable.querySelectorAll('tbody tr');
-        const headings = Array.from(tHeads).map(th => th.textContent.trim().split(' ').slice(0, -1).join(' ').toLowerCase()).join('\t') + '\timage name';
-        const tableData = Array.from(tbodyRows).map(row => {
-            const cells = row.querySelectorAll('td');
-            const img = decodeURIComponent(row.querySelector('img').src);
-            const dataWithoutImg = Array.from(cells).map(cell => cell.textContent.trim()).join('\t');
-            return `${dataWithoutImg}\t${img}`;
+        const headings = Array.from(customersTable.querySelectorAll('th')).map(th => th.textContent.trim().toLowerCase()).join('\t') + '\timage';
+        const rows = Array.from(customersTable.querySelectorAll('tbody tr')).map(row => {
+            const cells = Array.from(row.querySelectorAll('td'));
+            const img = row.querySelector('img') ? decodeURIComponent(row.querySelector('img').src) : '';
+            return cells.map(cell => cell.textContent.trim()).join('\t') + '\t' + img;
         }).join('\n');
-        return `${headings}\n${tableData}`;
+
+        return `${headings}\n${rows}`;
     }
 
     if (excelBtn) excelBtn.addEventListener('click', () => {
         const excel = toExcel();
-        downloadFile(excel, 'excel');
+        downloadFile(excel, 'excel', 'customer-orders');
     });
 });
