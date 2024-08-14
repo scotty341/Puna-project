@@ -90,15 +90,14 @@ header {
   transition: background 250ms ease-in-out;
   letter-spacing: 1px;
   padding: 0.75em 1.5em;
-  border-color: #D22630;
+  border-color: transparent;
   background-image: none;
-  color: #0d318d;
+  color: #03673f;
 }
 
 .nav__link--btn:hover {
   background: #03673f;
   color: #D22630;
-  border-color: #D22630;
   transition: color .5s ease-in-out;
 }
 
@@ -109,12 +108,12 @@ header {
 .nav__link--btn--highlight {
   background: #03673f;
   color: #D22630;
-  border-color: #D22630;
 }
 
 .nav__link--btn--highlight:hover {
   background-color: transparent;
-  color: #0d318d;
+  color: #03673f;
+  border-color: transparent;
 }
 
 .nav-scrolled {
