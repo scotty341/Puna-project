@@ -273,13 +273,13 @@ thead th.active,tbody td.active {
     display: inline-block;
     width: 2rem;
     height: 2rem;
-    background: transparent url(images/export.png) center / 80% no-repeat;
+    background: #fff url(export-3-svgrepo-com.svg) center / 80% no-repeat;
     border-radius: 50%;
     transition: .2s ease-in-out;
 }
 
 .export__file .export__file-btn:hover { 
-    background-color: transparent;
+    background-color: #fff6;
     transform: scale(1.15);
     cursor: pointer;
 }
@@ -323,17 +323,19 @@ thead th.active,tbody td.active {
     align-items: center;
 
     transition: .2s ease-in-out;
+    color: #0d318d;
 }
 
 .export__file .export__file-options label:first-of-type{
     padding: 1rem 0;
-    background-color: #86e49d !important;
+    background-color: #fff6 !important;
 }
 
 .export__file .export__file-options label:hover{
     transform: scale(1.05);
     background-color: #fff;
     cursor: pointer;
+    color: #D22630;
 }
 
 .export__file .export__file-options img{
