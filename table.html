@@ -1,0 +1,315 @@
+<!-- 
+Responsive HTML Table With Pure CSS - Web Design/UI Design
+
+Code written by:
+👨🏻‍⚕️ Coding Design (Jeet Saru)
+
+> You can do whatever you want with the code. However if you love my content, you can **SUBSCRIBED** my YouTube Channel.
+
+🌎link: www.youtube.com/codingdesign 
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ 
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Puna Project</title>
+     <link rel="stylesheet" type="text/css" href="table.css">
+ </head>
+ <div class="page-content">
+ <body>
+    <header>
+        <a class="site-logo" aria-label="homepage">Warriors</a>
+        <nav class="main-nav">
+          <ul class="nav__list">
+            <li class="nav__list-item"><a href="home.html" class="nav__link">Home</a></li>
+            <li class="nav__list-item">
+              <li class="nav__list-item">
+                <a href="carousel.html" class="nav__link">Carousel</a>
+              </li>
+              <li class="nav__list-item">
+                <a href="diamond-grid.html" class="nav__link">Diamond Grid</a>
+              </li>
+            <li class="nav__list-item">
+              <a href="table.html" class="nav__link-current">Table</a>
+            </li>
+            <li class="nav__list-item"><a href="#" class="nav__link">Unkown</a></li>
+          </ul>
+        </nav>
+        <nav class="account">
+          <ul class="nav__list">
+            <li class="nav__list-item">
+              <a class="nav__link nav__link--btn" href="#">Button1</a>
+            </li>
+            <li class="nav__list-item">
+              <a
+                class="nav__link nav__link--btn nav__link--btn--highlight"
+                href="#"
+                >Button2</a
+    >
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div class="body1">
+     <main class="table" id="customers_table">
+         <section class="table__header">
+             <h1>Warriors Team</h1>
+             <div class="input-group">
+                 <input type="search" placeholder="Search Data...">
+                 <img src="search-alt-2-svgrepo-com.svg" alt="">
+             </div>
+             <div class="export__file">
+                 <label for="export-file" class="export__file-btn" title="Export File"></label>
+                 <input type="checkbox" id="export-file">
+                 <div class="export__file-options">
+                 </div>
+             </div>
+         </section>
+         <section class="table__body">
+             <table>
+                 <thead>
+                     <tr>
+                         <th> Number <span class="icon-arrow">&UpArrow;</span></th>
+                         <th> Player <span class="icon-arrow">&UpArrow;</span></th>
+                         <th> Birthplace <span class="icon-arrow">&UpArrow;</span></th>
+                         <th> Debut <span class="icon-arrow">&UpArrow;</span></th>
+                         <th> Status <span class="icon-arrow">&UpArrow;</span></th>
+                         <th> Games <span class="icon-arrow">&UpArrow;</span></th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                    <tr>
+                        <td> 1</td>
+                        <td><img src="chan.png" alt=""> Charnze Nicoll-Klokstad </td>
+                        <td> Auckland, NZ </td>
+                        <td> 30 Apr, 2017 </td>
+                        <td>
+                            <p class="status delivered">Playing</p>
+                        </td>
+                        <td> <strong>110</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> 2 </td>
+                        <td><img src="dal.png" alt=""> Dallin Watene-Zelezniak </td>
+                        <td> Hamilton, NZ </td>
+                        <td> 05 Apr, 2014 </td>
+                        <td>
+                            <p class="status delivered">Playing</p>
+                        </td>
+                        <td> <strong>209</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> 3</td>
+                        <td><img src="Pompey.png" alt=""> Adam Pompey </td>
+                        <td> Auckland, NZ </td>
+                        <td> 19 Jul, 2019 </td>
+                        <td>
+                            <p class="status shipped">Returning</p>
+                        </td>
+                        <td> <strong>92</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> 4</td>
+                        <td><img src="RTS.png" alt=""> Roger Tuivasa-Sheck </td>
+                        <td> Apia, SAM </td>
+                        <td> 27 Jul, 2012 </td>
+                        <td>
+                            <p class="status delivered">Playing</p>
+                        </td>
+                        <td> <strong>16</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> 5</td>
+                        <td><img src="montoya.png" alt=""> Marcelo Montoya </td>
+                        <td> Lautoka, FIJ </td>
+                        <td> 17 Mar, 2017 </td>
+                        <td>
+                            <p class="status shipped">Returning</p>
+                        </td>
+                        <td> <strong>133</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> 6</td>
+                        <td><img src="chanel.png" alt=""> Chanel Harris-Tavita </td>
+                        <td> Auckland, NZ </td>
+                        <td> 05 Apr, 2019 </td>
+                        <td>
+                            <p class="status delivered">Playing</p>
+                        </td>
+                        <td> <strong>69</strong> </td>
+                    </tr>
+                     <tr>
+                         <td> 7 </td>
+                         <td> <img src="shuan.png" alt=""> Shaun Johnson </td>
+                         <td> Auckland, NZ </td>
+                         <td> 04 Jun, 2011 </td>
+                         <td>
+                             <p class="status shipped">Returning</p>
+                         </td>
+                         <td> <strong> 265 </strong></td>
+                     </tr>
+                     <tr>
+                         <td> 8</td>
+                         <td><img src="fin-blake.png" alt=""> Addin Fonua-Blake </td>
+                         <td> Meadowbank, NSW </td>
+                         <td> 14 Apr, 2016 </td>
+                         <td>
+                             <p class="status delivered">Playing</p>
+                         </td>
+                         <td> <strong>179</strong> </td>
+                     </tr>
+                     <tr>
+                         <td> 9</td>
+                         <td><img src="egan.png" alt=""> Wayde Egan </td>
+                         <td> Lithgow, NSW </td>
+                         <td> 29 Mar, 2018 </td>
+                         <td>
+                             <p class="status delivered">Playing</p>
+                         </td>
+                         <td> <strong>127</strong> </td>
+                     </tr>
+                     <tr>
+                         <td> 10</td>
+                         <td><img src="barnett.png" alt=""> Mitchell Barnett </td>
+                         <td> Taree, NSW </td>
+                         <td> 10 Aug, 2015 </td>
+                         <td>
+                             <p class="status delivered">Playing</p>
+                         </td>
+                         <td> <strong>163</strong> </td>
+                     </tr>
+                     <tr>
+                        <td> 11</td>
+                        <td><img src="Niukore.png" alt=""> Marata Niukore </td>
+                        <td> Auckland, NZ </td>
+                        <td> 18 May, 2018 </td>
+                        <td>
+                            <p class="status delivered">Playing</p>
+                        </td>
+                        <td> <strong>129</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> 12</td>
+                        <td><img src="kurt.png" alt=""> Kurt Capewell </td>
+                        <td> Charleville, QLD </td>
+                        <td> 10 Jul, 2016 </td>
+                        <td>
+                            <p class="status delivered">Playing</p>
+                        </td>
+                        <td> <strong>154</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> 13</td>
+                        <td><img src="walker.png" alt=""> Dylan Walker </td>
+                        <td> Sydney, NSW </td>
+                        <td> 17 May, 2013 </td>
+                        <td>
+                            <p class="status delivered">Playing</p>
+                        </td>
+                        <td> <strong>226</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> 14</td>
+                        <td><img src="Lussick.png" alt=""> Freddy Lussick </td>
+                        <td> Sydney, NSW </td>
+                        <td> 22 Aug, 2020 </td>
+                        <td>
+                            <p class="status delivered">Playing</p>
+                        </td>
+                        <td> <strong>45</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> 15</td>
+                        <td><img src="tom.png" alt=""> Tom Ale </td>
+                        <td> Auckland, NZ </td>
+                        <td> 20 Sep, 2020 </td>
+                        <td>
+                            <p class="status delivered">Playing</p>
+                        </td>
+                        <td> <strong>39</strong> </td>
+                    </tr>
+                    <tr>
+                         <td> 16</td>
+                         <td><img src="jazz.png" alt=""> Jazz Tevaga </td>
+                         <td> Christchurch, NZ </td>
+                         <td> 20 Mar, 2016 </td>
+                         <td>
+                             <p class="status delivered">Playing</p>
+                         </td>
+                         <td> <strong>135</strong> </td>
+                     </tr>
+                     <tr>
+                        <td> 17</td>
+                        <td><img src="Demitric.png" alt=""> Demitric Sifakula </td>
+                        <td> Auckland, NZ </td>
+                        <td> 30 Apr, 2023 </td>
+                        <td>
+                            <p class="status delivered">Playing</p>
+                        </td>
+                        <td> <strong>4</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> 18</td>
+                        <td><img src="Leka.png" alt=""> Leka Halasima </td>
+                        <td> Tofoa, Tonga </td>
+                        <td> 06 Jul, 2024 </td>
+                        <td>
+                            <p class="status shipped">Returning</p>
+                        </td>
+                        <td> <strong>4</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> 20</td>
+                        <td><img src="Tuaupiki.png" alt=""> Taine Tuaupik </td>
+                        <td> Manly, NSW </td>
+                        <td> 18 Mar, 2023 </td>
+                        <td>
+                            <p class="status delivered">Playing</p>
+                        </td>
+                        <td> <strong>10</strong> </td>
+                    </tr>
+                     <tr>
+                         <td> 21</td>
+                         <td><img src="luke.png" alt=""> Luke Metcalf </td>
+                         <td> Coffs Harbour, NSW </td>
+                         <td> 22 Dec, 2023 </td>
+                         <td>
+                             <p class="status shipped">Returning</p>
+                         </td>
+                         <td> <strong>23</strong> </td>
+                     </tr>
+                     <tr>
+                        <td> 22</td>
+                        <td><img src="Edward.png" alt=""> Edward Kosi </td>
+                        <td> Auckland, NZ </td>
+                        <td> 02 May, 2021 </td>
+                        <td>
+                            <p class="status delivered">Playing</p>
+                        </td>
+                        <td> <strong>32</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> 23</td>
+                        <td><img src="Bunty.png" alt=""> Bunty Afoa </td>
+                        <td> Auckland, NZ </td>
+                        <td> 02 July, 2016 </td>
+                        <td>
+                            <p class="status shipped">Returning</p>
+                        </td>
+                        <td> <strong>138</strong> </td>
+                    </tr>
+                 </tbody>
+             </table>
+         </section>
+     </main>
+     </div>
+     <script src="table.js"></script>
+     <div class="transition-layer left-layer left-layer--1"></div>
+     <div class="transition-layer left-layer left-layer--2"></div>
+     <div class="transition-layer left-layer left-layer--3"></div>
+ </body>
+</div>
+ </html>
