@@ -90,15 +90,15 @@ header {
   transition: background 250ms ease-in-out;
   letter-spacing: 1px;
   padding: 0.75em 1.5em;
-  border-color: transparent;
+  border-color: #D22630;
+  background-image: none;
+  color: #0d318d;
 }
 
 .nav__link--btn:hover {
-  background: linear-gradient(to right, #0d318d, #004b96, #005981, #00625e, #03673f);
-  background-size: 400%;
-  color: white;
-  border-color: white;
-  animation: big-animation 20s infinite alternate;
+  background: #03673f;
+  color: #D22630;
+  border-color: #D22630;
   transition: color .5s ease-in-out;
 }
 
@@ -107,18 +107,14 @@ header {
 }
 
 .nav__link--btn--highlight {
-  background: linear-gradient(to right, #0d318d, #004b96, #005981, #00625e, #03673f);
-  background-size: 400%;
-  color: #f4f4f4;
-  animation: big-animation 20s infinite alternate;
+  background: #03673f;
+  color: #D22630;
+  border-color: #D22630;
 }
 
 .nav__link--btn--highlight:hover {
-  background: linear-gradient(to right, #0d318d, #004b96, #005981, #00625e, #03673f);
-  animation: big-animation 20s infinite alternate;
-  background-size: 400%;
-  background-clip: text;
-  color: transparent;
+  background-color: transparent;
+  color: #0d318d;
 }
 
 .nav-scrolled {
