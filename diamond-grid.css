@@ -126,34 +126,29 @@ header {
   letter-spacing: 1px;
   padding: 0.75em 1.5em;
   border-color: transparent;
-}
-  
-.nav__link--btn:hover {
-  background-image: linear-gradient(to right, #0d318d, #004b96, #005981, #00625e, #03673f);
-  background-size: 400%;
+  background-image: none;
   color: white;
-  border-color: white;
-  animation: big-animation 20s infinite alternate;
+}
+
+.nav__link--btn:hover {
+  background: white;
+  color: #0d318d;
   transition: color .5s ease-in-out;
 }
-  
+
 .nav__link--btn::after {
   display: none;
 }
-  
+
 .nav__link--btn--highlight {
-  background: linear-gradient(to right, #0d318d, #004b96, #005981, #00625e, #03673f);
-  background-size: 400%;
-  color: #f4f4f4;
-  animation: big-animation 20s infinite alternate;
+  background: #0d318d;
+  color: white;
 }
-  
+
 .nav__link--btn--highlight:hover {
-  background-image: linear-gradient(to right, #0d318d, #004b96, #005981, #00625e, #03673f);
-  animation: big-animation 20s infinite alternate;
-  background-size: 400%;
-  background-clip: text;
-  color: transparent;
+  background-color: transparent;
+  color: #0d318d;
+  border-color: transparent;
 }
   
 .nav-scrolled {
