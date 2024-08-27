@@ -160,6 +160,7 @@ header {
 }
 ::-webkit-scrollbar {
   opacity: 0;
+  z-index: 10001;
 }
 
 @keyframes big-animation {
